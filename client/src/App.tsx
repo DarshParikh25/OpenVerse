@@ -10,7 +10,7 @@ import Navbar from './components/Navbar';
 
 function App(): JSX.Element {
   return (
-    <div className='w-full bg-white'>
+    <div className='w-full min-h-[100vh] bg-white'>
       <Navbar />
       <Routes>
         <Route path='/' element={<Home />} />

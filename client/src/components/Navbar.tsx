@@ -12,7 +12,7 @@ const Navbar = (): JSX.Element => {
                 <div className="w-full h-16 flex items-center justify-between">
                     <img src="/logo.png" alt="logo" onClick={() => {navigate('/')}} className="sm:w-36 w-28 h-fit cursor-pointer" />
                     <div className="flex justify-center items-center gap-5 max-sm:hidden">
-                        <button className="border border-dashed pr-4 pl-2.5 py-2 text-sm cursor-pointer text-white flex justify-center items-center gap-1 hover:scale-[1.02] transition-all duration-300">
+                        <button className="border border-dotted pr-4 pl-2.5 py-2 text-sm cursor-pointer text-white flex justify-center items-center gap-1 hover:scale-[1.02] transition-all duration-300">
                             <img src="/create-blog.png" alt="create blog" className="w-5" />
                             Create Blog
                         </button>
