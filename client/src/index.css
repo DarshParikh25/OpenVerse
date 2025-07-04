@@ -1,6 +1,9 @@
 @import "tailwindcss";
 
-
 * {
     font-family: "Saira", sans-serif;
+}
+
+#dash {
+    background: linear-gradient(90deg, #000, #fff);
 }
