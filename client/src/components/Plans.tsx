@@ -57,31 +57,31 @@ const Plans = (): JSX.Element => {
                 </div>
 
                 {/* Builder */}
-                <div className='w-70 lg:w-80 p-10 sm:p-15 rounded-2xl flex flex-col gap-5 justify-self-center md:relative bg-[#7e8182] relative max-2xl:mt-5'>
-                    <p className='bg-white w-70 lg:w-80 absolute left-0 -top-5 rounded-2xl border-2 border-[#7e8182] py-3 text-center font-semibold'>Best Value</p>
+                <div className='w-70 lg:w-80 p-10 sm:p-15 rounded-2xl flex flex-col gap-5 justify-self-center md:relative bg-[#7e8182] relative max-2xl:mt-5 text-white'>
+                    <p className='bg-white w-70 lg:w-80 absolute left-0 -top-5 rounded-2xl border-2 border-[#7e8182] py-3 text-center font-semibold text-[#7e8182]'>Best Value</p>
                     <div className='flex flex-col justify-center items-center gap-1'>
                         <h3 className='text-2xl font-semibold'>Builder</h3>
-                        <p className='text-sm text-[#7e8182] text-center'>Build your presence step by step.</p>
+                        <p className='text-sm text-[#ffffffb1] text-center'>Build your presence step by step.</p>
                     </div>
                     <p className='self-center'>
                         <span className='text-3xl font-bold'>$149</span>
-                        <span className='text-[#7e8182]'>/month</span>
+                        <span className='text-[#ffffffb1]'>/month</span>
                     </p>
                     <div className='flex flex-col gap-3 text-sm'>
                         <div className='flex items-center gap-3'>
-                            <img src="/tick.png" alt="" className='w-3.75' />
+                            <img src="/white-tick.png" alt="" className='w-3.75' />
                             <p>Publish 1 Blog Per Month</p>
                         </div>
                         <div className='flex items-center gap-3'>
-                            <img src="/tick.png" alt="" className='w-3.75' />
+                            <img src="/white-tick.png" alt="" className='w-3.75' />
                             <p>Read Unlimited Blogs</p>
                         </div>
                         <div className='flex items-center gap-3'>
-                            <img src="/tick.png" alt="" className='w-3.75' />
+                            <img src="/white-tick.png" alt="" className='w-3.75' />
                             <p>Edit Blogs After Publishing</p>
                         </div>
                         <div className='flex items-center gap-3'>
-                            <img src="/tick.png" alt="" className='w-3.75' />
+                            <img src="/white-tick.png" alt="" className='w-3.75' />
                             <p>Blog analytics</p>
                         </div>
                     </div>

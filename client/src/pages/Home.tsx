@@ -2,6 +2,7 @@ import type { JSX } from "react"
 import Hero from "../components/Hero"
 import About from "../components/About"
 import Plans from "../components/Plans"
+import Subscription from "../components/Subscription"
 
 const Home = (): JSX.Element => {
     return (
@@ -9,6 +10,7 @@ const Home = (): JSX.Element => {
             <Hero />
             <About />
             <Plans />
+            <Subscription />
         </>
     )
 }
