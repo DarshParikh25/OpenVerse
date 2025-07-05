@@ -69,8 +69,8 @@ const About = (): JSX.Element => {
                     <p className="max-md:w-full w-[80%] text-justify">After your first free post, subscribe to continue sharing with the world. Our transparent pricing ensures you can focus on creating great content without hidden surprises. No hidden fees, no questions asked.</p>
                     <div className="flex gap-5 flex-wrap">
                         <div className="flex flex-col justify-center items-center">
-                            <span className="text-2xl font-semibold">$99</span>
-                            <span className="text-[#7e8182] text-sm">STARTING PRICE</span>
+                            <span className="text-2xl font-semibold">$49</span>
+                            <span className="text-[#7e8182] text-sm">START PRICE</span>
                         </div>
                         <div className="flex flex-col justify-center items-center">
                             <span className="text-2xl font-semibold">0%</span>

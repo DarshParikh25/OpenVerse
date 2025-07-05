@@ -9,6 +9,9 @@
 }
 
 ::placeholder {
-    color: #ffffffb1;
     font-size: small;
+}
+
+.sub {
+    color: #ffffffb1;
 }

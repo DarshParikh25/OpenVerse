@@ -2,7 +2,7 @@ import type { JSX } from 'react';
 
 const Plans = (): JSX.Element => {
     return (
-        <section className='w-full flex flex-col justify-center items-center gap-10 mb-10'>
+        <section className='w-full flex flex-col justify-center items-center gap-10 mb-30'>
             <div className='flex flex-col gap-2 justify-center items-center w-fit text-center'>
                 <h2 className="max-md:text-4xl text-[2.75rem] tracking-tighter font-medium">Publishing Plans</h2>
                 <p className='text-[#7e8182]'>Transparent Pricing. No Hidden Charges.</p>
@@ -26,7 +26,7 @@ const Plans = (): JSX.Element => {
                             <p>Read Unlimited Blogs</p>
                         </div>
                     </div>
-                    <button className='w-fit border-2 border-[#7e8182] font-medium self-center rounded-full px-6 py-2 text-[#7e8182] hover:bg-[#7e8182] hover:text-white cursor-pointer transition-all duration-300 mt-10 md:absolute md:bottom-15'>Let's Launch</button>
+                    <button className='w-fit border-2 border-[#7e8182] font-medium self-center rounded-full px-6 py-2 text-[#7e8182] hover:bg-[#7e8182] hover:text-white cursor-pointer transition-all duration-300 mt-5 md:absolute md:bottom-15'>Let's Launch</button>
                 </div>
 
                 {/* Occasional */}
@@ -53,7 +53,7 @@ const Plans = (): JSX.Element => {
                             <p>Edit Blogs After Publishing</p>
                         </div>
                     </div>
-                    <button className='w-fit border-2 border-[#7e8182] font-medium self-center rounded-full px-6 py-2 text-[#7e8182] hover:bg-[#7e8182] hover:text-white cursor-pointer transition-all duration-300 mt-10 2xl:absolute 2xl:bottom-15'>Give it a Go</button>
+                    <button className='w-fit border-2 border-[#7e8182] font-medium self-center rounded-full px-6 py-2 text-[#7e8182] hover:bg-[#7e8182] hover:text-white cursor-pointer transition-all duration-300 mt-5 2xl:absolute 2xl:bottom-15'>Give it a Go</button>
                 </div>
 
                 {/* Builder */}
@@ -85,7 +85,7 @@ const Plans = (): JSX.Element => {
                             <p>Blog analytics</p>
                         </div>
                     </div>
-                    <button className='w-fit border-2 border-white font-medium self-center rounded-full px-6 py-2 hover:bg-white bg-transparent hover:text-[#7e8182] text-white cursor-pointer transition-all duration-300 mt-10 md:absolute md:bottom-15'>Start Building</button>
+                    <button className='w-fit border-2 border-white font-medium self-center rounded-full px-6 py-2 hover:bg-white bg-transparent hover:text-[#7e8182] text-white cursor-pointer transition-all duration-300 mt-5 md:absolute md:bottom-15'>Start Building</button>
                 </div>
 
                 {/* Elite */}
@@ -124,7 +124,7 @@ const Plans = (): JSX.Element => {
                             <p>Priority Support</p>
                         </div>
                     </div>
-                    <button className='w-fit border-2 border-[#7e8182] font-medium self-center rounded-full px-6 py-2 text-[#7e8182] hover:bg-[#7e8182] hover:text-white cursor-pointer transition-all duration-300 mt-10'>Go Unlimited</button>
+                    <button className='w-fit border-2 border-[#7e8182] font-medium self-center rounded-full px-6 py-2 text-[#7e8182] hover:bg-[#7e8182] hover:text-white cursor-pointer transition-all duration-300 mt-5'>Go Unlimited</button>
                 </div>
             </div>
         </section>
