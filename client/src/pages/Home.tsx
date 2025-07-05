@@ -4,6 +4,7 @@ import About from "../components/About"
 import Plans from "../components/Plans"
 import Subscription from "../components/Subscription"
 import Contact from "../components/Contact"
+import Footer from "../components/Footer"
 
 const Home = (): JSX.Element => {
     return (
@@ -13,6 +14,7 @@ const Home = (): JSX.Element => {
             <Plans />
             <Subscription />
             <Contact />
+            <Footer />
         </div>
     )
 }

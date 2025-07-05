@@ -6,7 +6,7 @@ const Contact = (): JSX.Element => {
     const [message, setMessage] = useState('');
 
     return (
-        <div className='w-full flex flex-col justify-center items-center my-20'>
+        <section className='w-full flex flex-col justify-center items-center my-20'>
             <div className='flex flex-col items-center justify-center text-center max-sm:gap-3 gap-2'>
                 <h2 className="max-md:text-4xl text-[2.75rem] tracking-tighter font-medium">Get in Touch</h2>
                 <p>Have questions, suggestions, or need support? We're here to help.</p>
@@ -48,7 +48,7 @@ const Contact = (): JSX.Element => {
                 <img src="/contact.png" alt="email for support" className='w-4.5 h-fit' />
                 Or reach us directly at: <span className='text-black underline underline-offset-3 cursor-pointer'>{import.meta.env.VITE_EMAIL}</span>
             </p>
-        </div>
+        </section>
     )
 }
 

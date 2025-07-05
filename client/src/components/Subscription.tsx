@@ -4,7 +4,7 @@ const Subscription = (): JSX.Element => {
     const [email, setEmail] = useState('');
 
     return (
-        <div className='w-full flex flex-col justify-center items-center bg-[#7e8182] px-10 py-15 md:p-20 gap-15 text-white'>
+        <section className='w-full flex flex-col justify-center items-center bg-[#7e8182] px-10 py-15 md:p-20 gap-15 text-white'>
             <div className='flex flex-col items-center text-center max-md:gap-3 gap-2'>
                 <h2 className='max-md:text-4xl text-[2.75rem] tracking-tighter font-medium'>Subscribe for Updates</h2>
                 <p className='text-[#ffffffb1] text-sm'>Stay informed about new features, platform updates, and trending blog content.</p>
@@ -24,7 +24,7 @@ const Subscription = (): JSX.Element => {
                     Subscribe
                 </button>
             </form>
-        </div>
+        </section>
     )
 }
 
