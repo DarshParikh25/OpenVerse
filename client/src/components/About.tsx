@@ -13,7 +13,7 @@ const About = (): JSX.Element => {
                         <span id="dash" className="h-1 w-20 rounded-full"></span>
                     </h3>
                     <p className="max-md:w-full w-[80%] text-justify">Access a growing collection of high-quality blogs spanning technology, lifestyle, business, health, travel, and more. Discover fresh perspectives and insights from passionate writers worldwide who share their expertise and experiences.</p>
-                    <div className="flex gap-5">
+                    <div className="flex gap-5 flex-wrap">
                         <div className="flex flex-col justify-center items-center">
                             <span className="text-2xl font-semibold">10K+</span>
                             <span className="text-[#7e8182] text-sm">ARTICLES</span>
@@ -41,7 +41,7 @@ const About = (): JSX.Element => {
                         <span id="dash" className="h-1 w-20 rounded-full"></span>
                     </h3>
                     <p className="max-md:w-full w-[80%] text-justify">Create and share your first blog post at no cost. Our intuitive editor makes it easy to craft compelling content and reach your audience with just a few clicks. No technical skills required – just focus on your story.</p>
-                    <div className="flex gap-5">
+                    <div className="flex gap-5 flex-wrap">
                         <div className="flex flex-col justify-center items-center">
                             <span className="text-2xl font-semibold">3 Min</span>
                             <span className="text-[#7e8182] text-sm">SETUP TIME</span>
@@ -67,7 +67,7 @@ const About = (): JSX.Element => {
                         <span id="dash" className="h-1 w-20 rounded-full"></span>
                     </h3>
                     <p className="max-md:w-full w-[80%] text-justify">After your first free post, subscribe to continue sharing with the world. Our transparent pricing ensures you can focus on creating great content without hidden surprises. No hidden fees, no questions asked.</p>
-                    <div className="flex gap-5">
+                    <div className="flex gap-5 flex-wrap">
                         <div className="flex flex-col justify-center items-center">
                             <span className="text-2xl font-semibold">$99</span>
                             <span className="text-[#7e8182] text-sm">STARTING PRICE</span>
@@ -95,7 +95,7 @@ const About = (): JSX.Element => {
                         <span id="dash" className="h-1 w-20 rounded-full"></span>
                     </h3>
                     <p className="max-md:w-full w-[80%] text-justify">Whether you're a reader, a writer, or both — OpenVerse adapts to your needs. Our platform grows with you, offering features that enhance your blogging journey from beginner to expert level.</p>
-                    <div className="flex gap-5">
+                    <div className="flex gap-5 flex-wrap">
                         <div className="flex flex-col justify-center items-center">
                             <span className="text-2xl font-semibold">100K+</span>
                             <span className="text-[#7e8182] text-sm">ACTIVE USERS</span>
