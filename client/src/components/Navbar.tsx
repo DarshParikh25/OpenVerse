@@ -11,6 +11,8 @@ const Navbar = (): JSX.Element => {
             <div className="md:w-[70%] w-full bg-[#7e8182] sm:px-8 px-4 md:h-[70%] h-full md:rounded-full">
                 <div className="w-full h-16 flex items-center justify-between">
                     <img src="/logo.png" alt="logo" onClick={() => {navigate('/')}} className="sm:w-36 w-28 h-fit cursor-pointer" />
+
+                    {/* Buttons for large screen like pc or laptop users */}
                     <div className="flex justify-center items-center gap-5 max-sm:hidden">
                         <button className="border border-dotted pr-4 pl-2.5 py-2 text-sm cursor-pointer text-white flex justify-center items-center gap-1 hover:scale-[1.02] transition-all duration-300">
                             <img src="/create-blog.png" alt="create blog" className="w-5" />
@@ -18,6 +20,8 @@ const Navbar = (): JSX.Element => {
                         </button>
                         <button className="rounded-full border-none px-6 py-2 bg-white text-sm font-semibold cursor-pointer">Login</button>
                     </div>
+
+                    {/* Menu for small screens like mobile and tablet users */}
                     <div className="sm:hidden">
                         <img src="/menu.png" alt="menu" onClick={() => {setShowMenu(true)}} className={`w-7 cursor-pointer ${showMenu && 'hidden'}`} />
                         <img src="/close.png" alt="menu" onClick={() => {setShowMenu(false)}} className={`w-6 cursor-pointer ${!showMenu && 'hidden'}`} />

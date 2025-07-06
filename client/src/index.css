@@ -8,6 +8,10 @@
     background: linear-gradient(90deg, #000, #fff);
 }
 
+#footer-dash {
+    background: linear-gradient(90deg, #000, #7e8182);
+}
+
 ::placeholder {
     font-size: small;
 }

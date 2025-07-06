@@ -7,6 +7,7 @@ import SignUp from './pages/SignUp';
 import Blogs from './pages/Blogs';
 import CreateBlogPost from './pages/CreateBlogPost';
 import Navbar from './components/Navbar';
+import Footer from './components/Footer';
 
 function App(): JSX.Element {
   return (
@@ -19,6 +20,7 @@ function App(): JSX.Element {
         <Route path='/blogs' element={<Blogs />} />
         <Route path='/create-blog-post' element={<CreateBlogPost />} />
       </Routes>
+      <Footer />
     </div>
   )
 }
