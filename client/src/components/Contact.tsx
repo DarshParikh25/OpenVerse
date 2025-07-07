@@ -1,9 +1,9 @@
 import { useState, type JSX } from 'react';
 
 const Contact = (): JSX.Element => {
-    const [name, setName] = useState('');
-    const [email, setEmail] = useState('');
-    const [message, setMessage] = useState('');
+    // const [name, setName] = useState('');
+    // const [email, setEmail] = useState('');
+    // const [message, setMessage] = useState('');
 
     return (
         <section className='w-full flex flex-col justify-center items-center my-20'>
@@ -16,7 +16,7 @@ const Contact = (): JSX.Element => {
                     <label className='font-medium self-start'>Name</label>
                     <input 
                         type="text" 
-                        value={name} 
+                        // value={name} 
                         id="name" 
                         placeholder='Enter your name'
                         className='border-2 border-[#7e8182] rounded-md px-3 py-1.5 text-sm w-full outline-none focus:border-black transition-all duration-300'
@@ -26,7 +26,7 @@ const Contact = (): JSX.Element => {
                     <label className='font-medium self-start'>Email</label>
                     <input 
                         type="email" 
-                        value={email} 
+                        // value={email} 
                         id="email" 
                         placeholder='Enter your email'
                         className='border-2 border-[#7e8182] rounded-md px-3 py-1.5 text-sm w-full outline-none focus:border-black transition-all duration-300'
@@ -35,7 +35,7 @@ const Contact = (): JSX.Element => {
                 <div className='flex flex-col w-full justify-center items-center gap-1'>
                     <label className='font-medium self-start'>Message</label>
                     <textarea 
-                        value={message} 
+                        // value={message} 
                         id="message" 
                         rows={4} 
                         placeholder='Enter the message'

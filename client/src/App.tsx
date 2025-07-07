@@ -3,11 +3,11 @@ import type { JSX } from 'react';
 
 import Home from './pages/Home';
 import LogIn from './pages/LogIn';
-import SignUp from './pages/SignUp';
 import Blogs from './pages/Blogs';
 import CreateBlogPost from './pages/CreateBlogPost';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
+import Register from './pages/Register';
 
 function App(): JSX.Element {
   return (
@@ -16,7 +16,7 @@ function App(): JSX.Element {
       <Routes>
         <Route path='/' element={<Home />} />
         <Route path='/login' element={<LogIn />} />
-        <Route path='/signup' element={<SignUp />} />
+        <Route path='/register' element={<Register />} />
         <Route path='/blogs' element={<Blogs />} />
         <Route path='/create-blog-post' element={<CreateBlogPost />} />
       </Routes>

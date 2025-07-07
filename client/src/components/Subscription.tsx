@@ -1,7 +1,7 @@
 import { useState, type JSX } from 'react';
 
 const Subscription = (): JSX.Element => {
-    const [email, setEmail] = useState('');
+    // const [email, setEmail] = useState('');
 
     return (
         <section className='w-full flex flex-col justify-center items-center bg-[#7e8182] px-10 py-15 md:p-20 gap-15 text-white'>
@@ -14,7 +14,7 @@ const Subscription = (): JSX.Element => {
                     <img src="/email.png" alt="email for subscribing for the updates" className='w-5' />
                     <input 
                         type="email" 
-                        value={email} 
+                        // value={email} 
                         id='email' 
                         placeholder='Enter your email' 
                         className='sub outline-none text-sm w-full'
