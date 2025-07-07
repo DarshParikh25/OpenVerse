@@ -36,16 +36,14 @@ const Register = (): boolean | JSX.Element => {
                             <div className="w-1/2 flex flex-col gap-1">
                                 <label className="text-sm text-[#7e8182]">First name</label>
                                 <input 
-                                    type="email" 
-                                    // placeholder="me@example.com"
+                                    type="text" 
                                     className="border-b-[1.25px] border-[#7e8182] outline-none text-sm py-1 focus:border-black transition-all duration-300"
                                 />
                             </div>
                             <div className="w-1/2 flex flex-col gap-1">
                                 <label className="text-sm text-[#7e8182]">Last name</label>
                                 <input 
-                                    type="email" 
-                                    // placeholder="me@example.com"
+                                    type="text" 
                                     className="border-b-[1.25px] border-[#7e8182] outline-none text-sm py-1 focus:border-black transition-all duration-300"
                                 />
                             </div>
@@ -82,7 +80,7 @@ const Register = (): boolean | JSX.Element => {
             
             {/* Register Info */}
             <div className="w-full h-full flex items-center justify-end overflow-hidden relative max-lg:hidden">
-                <img src="/bg2.png" alt="register background" className="w-fit h-full lg:object-fill xl:object-contain" />
+                <img src="/login.png" alt="register background" className="w-fit h-full lg:object-fill xl:object-contain" />
                 <div className="absolute z-50 flex flex-col text-white right-40 xl:right-35 top-65 gap-10 w-[55%] xl:w-[45%]">
                     <h3 className="text-5xl font-semibold">Hey, there!</h3>
                     <p className="text-xl font-light">You can register and start your blogging journey today!</p>

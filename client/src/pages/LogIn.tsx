@@ -67,7 +67,7 @@ const LogIn = (): boolean | JSX.Element => {
             
             {/* Login Info */}
             <div className="w-full h-full flex items-center justify-end overflow-hidden relative max-lg:hidden">
-                <img src="/bg2.png" alt="login background" className="w-fit h-full lg:object-fill 2xl:object-contain" />
+                <img src="/login.png" alt="login background" className="w-fit h-full lg:object-fill 2xl:object-contain" />
                 <div className="absolute z-50 flex flex-col text-white right-40 top-65 gap-10 w-[55%] xl:w-[45%]">
                     <h3 className="text-5xl font-semibold">Welcome back!</h3>
                     <p className="text-xl font-light">You can login to access with your existing account!</p>
