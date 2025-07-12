@@ -1,7 +1,7 @@
 export const blogData = [
   {
     id: 1,
-    title: "The Future of Web Development: Trends to Watch in 2025",
+    title: "Future of Web Development: Trends to Watch in 2025",
     slug: "future-web-development-trends-2025",
     author: {
       name: "Sarah Chen",

@@ -64,13 +64,13 @@ const Plans = (): JSX.Element => {
                         <p className='text-sm text-[#ffffffb1] text-center'>Build your presence step by step.</p>
                     </div>
                     <p className='self-center'>
-                        <span className='text-3xl font-bold'>$149</span>
+                        <span className='text-3xl font-bold'>$219</span>
                         <span className='text-[#ffffffb1]'>/month</span>
                     </p>
                     <div className='flex flex-col gap-3 text-sm'>
                         <div className='flex items-center gap-3'>
                             <img src="/white-tick.png" alt="" className='w-3.75' />
-                            <p>Publish 1 Blog Per Month</p>
+                            <p>Publish 5 Blog Per Month</p>
                         </div>
                         <div className='flex items-center gap-3'>
                             <img src="/white-tick.png" alt="" className='w-3.75' />
@@ -95,13 +95,13 @@ const Plans = (): JSX.Element => {
                         <p className='text-sm text-[#7e8182] text-center'>Go all-in. You’re the publisher.</p>
                     </div>
                     <p className='self-center'>
-                        <span className='text-3xl font-bold'>$499</span>
+                        <span className='text-3xl font-bold'>$549</span>
                         <span className='text-[#7e8182]'>/month</span>
                     </p>
                     <div className='flex flex-col gap-3 text-sm'>
                         <div className='flex items-center gap-3'>
                             <img src="/tick.png" alt="" className='w-3.75' />
-                            <p>Publish 1 Blog Per Month</p>
+                            <p>Publish Unlimited Blogs</p>
                         </div>
                         <div className='flex items-center gap-3'>
                             <img src="/tick.png" alt="" className='w-3.75' />

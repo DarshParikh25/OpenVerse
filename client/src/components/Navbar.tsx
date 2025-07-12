@@ -14,11 +14,11 @@ const Navbar = (): JSX.Element => {
 
                     {/* Buttons for large screen like pc or laptop users */}
                     <div className="flex justify-center items-center gap-5 max-sm:hidden">
-                        <button className="border border-dotted pr-4 pl-2.5 py-2 text-sm cursor-pointer text-white flex justify-center items-center gap-1 hover:scale-[1.02] transition-all duration-300">
+                        <button onClick={() => {navigate('/create-blog-post')}} className="border border-dotted pr-4 pl-2.5 py-2 text-sm cursor-pointer text-white flex justify-center items-center gap-1 hover:scale-[1.02] transition-all duration-300">
                             <img src="/create-blog.png" alt="create blog" className="w-5" />
                             Create Blog
                         </button>
-                        <button className="rounded-full border-none px-6 py-2 bg-white text-sm font-semibold cursor-pointer">Login</button>
+                        <button onClick={() => {navigate('/login')}} className="rounded-full border-none px-6 py-2 bg-white text-sm font-semibold cursor-pointer">Login</button>
                     </div>
 
                     {/* Menu for small screens like mobile and tablet users */}
@@ -28,8 +28,8 @@ const Navbar = (): JSX.Element => {
                     </div>
                 </div>
                 <div className={`sm:hidden ${!showMenu && 'hidden'} text-right text-sm font-semibold flex flex-col gap-2.5 pr-8`}>
-                    <p className="text-white cursor-pointer">Create Blog</p>
-                    <p className="text-white cursor-pointer">Login</p>
+                    <p onClick={() => {navigate('/create-blog-post')}} className="text-white cursor-pointer">Create Blog</p>
+                    <p onClick={() => {navigate('/login')}} className="text-white cursor-pointer">Login</p>
                 </div>
             </div>
         </div>
