@@ -5,7 +5,7 @@ const Footer = (): JSX.Element => {
     const navigate = useNavigate();
 
     return (
-        <section className="px-10 pt-10 pb-7 bg-[#7e8182]">
+        <footer className="px-10 pt-10 pb-7 bg-[#7e8182]">
             {/* Upper Footer */}
             <div className="grid sm:grid-cols-2 grid-cols-1 pb-10 gap-10">
                 <div className="flex flex-col gap-5 w-full">
@@ -41,7 +41,7 @@ const Footer = (): JSX.Element => {
                     <li className="text-sm cursor-pointer hover:underline underline-offset-4 text-[#333] hover:text-black font-medium">Terms of Service</li>
                 </ul>
             </div>
-        </section>
+        </footer>
     )
 }
 

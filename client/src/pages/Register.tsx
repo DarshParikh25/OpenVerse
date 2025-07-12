@@ -7,9 +7,9 @@ const Register = (): boolean | JSX.Element => {
     const navigate = useNavigate();
 
     return state === 'register' && (
-        <div className="h-[100vh] w-full grid lg:grid-cols-2 2xl:grid-cols-[0.85fr_1.15fr] grid-cols-1">
+        <main className="h-[100vh] w-full grid lg:grid-cols-2 2xl:grid-cols-[0.85fr_1.15fr] grid-cols-1">
             {/* Register Form */}
-            <div className="bg-white w-[90%] sm:w-full h-full py-10 md:py-15 px-5 sm:px-25 flex flex-col gap-10 max-lg:items-center justify-self-center">
+            <section className="bg-white w-[90%] sm:w-full h-full py-10 md:py-15 px-5 sm:px-25 flex flex-col gap-10 max-lg:items-center justify-self-center">
                 <img src="/logo.png" alt="logo" onClick={() => {navigate('/')}} className="w-50 md:w-60 cursor-pointer" />
                 <div className="flex flex-col w-fit h-full gap-5">
                     <h2 className="text-3xl sm:text-[2rem] font-medium tracking-tight flex flex-col max-lg:self-center">
@@ -76,17 +76,17 @@ const Register = (): boolean | JSX.Element => {
                         <p onClick={() => {setState('login'); navigate('/login')}} className="text-blue-700 hover:underline hover:underline-offset-4 cursor-pointer text-xs w-fit">Already have an account? Login!</p>
                     </form>
                 </div>
-            </div>
+            </section>
             
             {/* Register Info */}
-            <div className="w-full h-full flex items-center justify-end overflow-hidden relative max-lg:hidden">
+            <section className="w-full h-full flex items-center justify-end overflow-hidden relative max-lg:hidden">
                 <img src="/login.png" alt="register background" className="w-fit h-full lg:object-fill xl:object-contain" />
                 <div className="absolute z-50 flex flex-col text-white right-40 xl:right-35 top-65 gap-10 w-[55%] xl:w-[45%]">
                     <h3 className="text-5xl font-semibold">Hey, there!</h3>
                     <p className="text-xl font-light">You can register and start your blogging journey today!</p>
                 </div>
-            </div>
-        </div>
+            </section>
+        </main>
     )
 }
 

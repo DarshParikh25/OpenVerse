@@ -1,8 +1,30 @@
-import { useContext, type JSX } from "react"
-import AppContext, { type blogType } from "../context/AppContext"
+import { useContext, useState, type ChangeEvent, type JSX } from "react"
+import { FaSearch } from 'react-icons/fa'
+import { CiCircleRemove } from "react-icons/ci"
+
+import AppContext, { type blogType, type AppContextType } from "../context/AppContext"
 
 const Blogs = (): JSX.Element => {
-    const context = useContext(AppContext)
+    const context: AppContextType | undefined = useContext(AppContext)
+
+    const [search, setSearch] = useState<string | null>(null);
+    const [minVal, setMinVal] = useState<number>(0);
+    const [maxVal, setMaxVal] = useState<number>(30);
+    const [minRange] = useState<number>(0);
+    const [maxRange] = useState<number>(30);
+
+    const minPercentage: number = ((minVal - minRange) / (maxRange - minRange)) * 100;
+    const maxPercentage: number = ((maxVal - minRange) / (maxRange - minRange)) * 100;
+
+    const handleMinChange = (e: ChangeEvent<HTMLInputElement>): void => {
+        const val: number = Math.min(Number(e.target.value), maxVal - 1);
+        setMinVal(val);
+    }
+
+    const handleMaxChange = (e: ChangeEvent<HTMLInputElement>): void => {
+        const val: number = Math.max(Number(e.target.value), minVal + 1);
+        setMaxVal(val);
+    }
 
     if(!context){
         return <>Loading...</>
@@ -11,18 +33,113 @@ const Blogs = (): JSX.Element => {
     const { blogData } = context;
 
     return (
-        <div className="md:pt-33 pt-20 grid grid-cols-1 lg:grid-cols-[0.5fr_1.5fr] w-full h-full">
-            {/* Filter options */}
-            <div className="w-full h-full top-0 lg:block hidden border-r border-[#7e8182]">
-                
-
-            </div>
+        <main className="md:pt-33 pt-20 grid grid-cols-1 lg:grid-cols-[0.5fr_1.5fr] w-full h-full mx-auto">
+            {/* Filter, sort and search options */}
+            <section className="w-full h-fit min-h-[85vh] sticky top-33 lg:flex hidden border-r border-[#7e8182] py-5 px-7 flex-col gap-5">
+                <div className="flex items-center justify-center w-full px-3 py-1.5 border border-[#7e8182] rounded-full h-fit gap-3">
+                    <FaSearch className="text-[#7e8182]" />
+                    <input 
+                        type="text" 
+                        value={search ?? ''}
+                        onChange={(e) => {
+                            setSearch(e.target.value)
+                        }} 
+                        placeholder="Search blog posts..." 
+                        className="w-full outline-none text-sm"
+                    />
+                    <CiCircleRemove onClick={() => {setSearch(null)}} className="text-2xl cursor-pointer" />
+                </div>
+                <div className="flex flex-col gap-3">
+                    <h3 className="text-lg font-medium">Filter By</h3>
+                    <div className="flex flex-col gap-5">
+                        <div className="flex flex-col gap-2">
+                            <p className="text-sm px-2">Author</p>
+                            <select id="authorFilter" className="border border-[#7e8182] rounded-full outline-none cursor-pointer text-xs px-3 py-1.5">
+                                <option value="">All Authors</option>
+                                <option value="Kiran Devi">Kiran Devi</option>
+                                <option value="George Freedy">Georgy Freedy</option>
+                                <option value="Oliver Swift">Oliver Swift</option>
+                                <option value="Sheikh Md Imran">Sheikh Md Imran</option>
+                                <option value="Yasmin Jain">Yasmin Jain</option>
+                            </select>
+                        </div>
+                        <div className="flex flex-col gap-2">
+                            <p className="text-sm px-2">Categories</p>
+                            <select id="authorFilter" className="border border-[#7e8182] rounded-full outline-none cursor-pointer text-xs px-3 py-1.5">
+                                <option value="">All Categories</option>
+                                <option value="Diet">Diet</option>
+                                <option value="Exercise">Exercise</option>
+                                <option value="Food">Food</option>
+                                <option value="Coding">Coding</option>
+                                <option value="Travel">Travel</option>
+                            </select>
+                        </div>
+                        <div className="flex flex-col gap-2">
+                            <p className="text-sm px-2">Tags</p>
+                            <select id="authorFilter" className="border border-[#7e8182] rounded-full outline-none cursor-pointer text-xs px-3 py-1.5">
+                                <option value="">All Tags</option>
+                                <option value="Web Development">Web Development</option>
+                                <option value="Laughter">Laughter</option>
+                                <option value="Greek">Greek</option>
+                                <option value="India">India</option>
+                                <option value="War">War</option>
+                            </select>
+                        </div>
+                        <div className="flex flex-col gap-2">
+                            <p className="text-sm px-2">Read Time</p>
+                            <div className="relative px-2">
+                                <div className="absolute h-[8px] rounded-sm top-0 bg-gray-200 left-2 right-2"></div>
+                                <div 
+                                    className="absolute h-[8px] bg-blue-500 rounded-sm top-0"
+                                    style={{ // style because using template literal in tailwindcss does not handle dynamic data
+                                        width: `${maxPercentage - minPercentage}%`,
+                                        left: `${minPercentage}%`,
+                                        marginLeft: '8px',
+                                        marginRight: '8px'
+                                    }}
+                                ></div>
+                                <input 
+                                    type="range" 
+                                    min={minRange} 
+                                    max={maxRange} 
+                                    value={minVal} 
+                                    onChange={handleMinChange}
+                                    className={`w-full absolute h-[8px] bg-transparent appearance-none pointer-events-none rangeInput`} 
+                                />
+                                <input 
+                                    type="range" 
+                                    min={minRange} 
+                                    max={maxRange} 
+                                    value={maxVal} 
+                                    onChange={handleMaxChange}
+                                    className={`w-full absolute h-[8px] bg-transparent appearance-none pointer-events-none rangeInput`} 
+                                />
+                            </div>
+                            <div className="flex justify-between text-xs text-gray-500 mt-2">
+                                <span>{minVal} min</span>
+                                <span>{maxVal} min</span>
+                            </div>
+                        </div>
+                    </div>
+                    <h3>Sort By</h3>
+                    <div className="flex flex-col gap-2">
+                        <select id="authorFilter" className="border border-[#7e8182] rounded-full outline-none cursor-pointer text-xs px-3 py-1.5">
+                            <option value="Latest First">Latest First</option>
+                            <option value="Latest Last">Latest Last</option>
+                            <option value="Title A-Z">Title A-Z</option>
+                            <option value="Title Z-A">Title Z-A</option>
+                        </select>
+                    </div>
+                </div>
+                <button className="cursor-pointer bg-[#7e8182] text-sm text-white py-2 rounded-full mt-3 border-2 border-[#7e8182] hover:bg-transparent hover:text-[#7e8182] transition-all duration-300">Clear all filters</button>
+            </section>
 
             {/* Blogs */}
-            <div className="w-full grid grid-cols-1 md:grid-cols-2 2xl:grid-cols-3 gap-10 px-15 py-7">
+            <section className="w-full grid grid-cols-1 md:grid-cols-2 2xl:grid-cols-3 gap-10 px-15 py-10 relative">
+                <p className="absolute right-15 text-sm text-[#7e8182]">Showing all results</p>
                 {
                     blogData.map((blog: blogType): JSX.Element => (
-                        <div className="group border-2 border-[#7e8182] w-[320px] rounded-xl relative pb-20 justify-self-center cursor-pointer">
+                        <div key={blog.id} className="group border border-[#7e8182] w-[320px] rounded-xl relative pb-20 justify-self-center cursor-pointer">
                             <div className="overflow-hidden rounded-t-xl w-full">
                                 <img src={blog.thumbnail} alt="blog thumbnail" className="pointer-events-none object-cover group-hover:scale-[1.05] transition-all duration-500" />
                             </div>
@@ -51,8 +168,8 @@ const Blogs = (): JSX.Element => {
                         </div>
                     ))
                 }
-            </div>
-        </div>
+            </section>
+        </main>
     )
 }
 

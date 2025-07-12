@@ -7,7 +7,7 @@ const Navbar = (): JSX.Element => {
     const [showMenu, setShowMenu] = useState(false); // Return type is not necessary to mention as it automatically infers.
 
     return (
-        <div className={`w-full md:h-24 h-16 flex items-center justify-center ${showMenu && 'max-sm:h-34'} transition-all duration-300 fixed z-10`} >
+        <nav className={`w-full md:h-24 h-16 flex items-center justify-center ${showMenu && 'max-sm:h-34'} transition-all duration-300 fixed z-10`} >
             <div className="md:w-[70%] w-full bg-[#7e8182] sm:px-8 px-4 md:h-[70%] h-full md:rounded-full">
                 <div className="w-full h-16 flex items-center justify-between">
                     <img src="/logo.png" alt="logo" onClick={() => {navigate('/')}} className="sm:w-36 w-28 h-fit cursor-pointer" />
@@ -32,7 +32,7 @@ const Navbar = (): JSX.Element => {
                     <p onClick={() => {navigate('/login')}} className="text-white cursor-pointer">Login</p>
                 </div>
             </div>
-        </div>
+        </nav>
     )
 }
 

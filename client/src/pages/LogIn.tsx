@@ -7,9 +7,9 @@ const LogIn = (): boolean | JSX.Element => {
     const navigate = useNavigate();
 
     return state === 'login' && (
-        <div className="h-[100vh] w-full grid lg:grid-cols-2 2xl:grid-cols-[0.75fr_1.25fr] grid-cols-1">
+        <main className="h-[100vh] w-full grid lg:grid-cols-2 2xl:grid-cols-[0.75fr_1.25fr] grid-cols-1">
             {/* Login Form */}
-            <div className="bg-white w-full h-full sm:py-20 lg:py-15 xl:py-20 py-13 px-5 sm:px-25 flex flex-col gap-15 max-lg:items-center max-lg:justify-center">
+            <section className="bg-white w-full h-full sm:py-20 lg:py-15 xl:py-20 py-13 px-5 sm:px-25 flex flex-col gap-15 max-lg:items-center max-lg:justify-center">
                 <img src="/logo.png" alt="logo" onClick={() => {navigate('/')}} className="w-50 md:w-60 cursor-pointer" />
                 <div className="flex flex-col w-fit h-full gap-7">
                     <h2 className="text-3xl sm:text-[2rem] font-medium tracking-tight flex flex-col max-lg:self-center">
@@ -63,17 +63,17 @@ const LogIn = (): boolean | JSX.Element => {
                         <p onClick={() => {setState('register'); navigate('/register')}} className="text-blue-700 hover:underline hover:underline-offset-4 cursor-pointer text-xs w-fit">New here? Create an account!</p>
                     </form>
                 </div>
-            </div>
+            </section>
             
             {/* Login Info */}
-            <div className="w-full h-full flex items-center justify-end overflow-hidden relative max-lg:hidden">
+            <section className="w-full h-full flex items-center justify-end overflow-hidden relative max-lg:hidden">
                 <img src="/login.png" alt="login background" className="w-fit h-full lg:object-fill 2xl:object-contain" />
                 <div className="absolute z-50 flex flex-col text-white right-40 top-65 gap-10 w-[55%] xl:w-[45%]">
                     <h3 className="text-5xl font-semibold">Welcome back!</h3>
                     <p className="text-xl font-light">You can login to access with your existing account!</p>
                 </div>
-            </div>
-        </div>
+            </section>
+        </main>
     )
 }
 
