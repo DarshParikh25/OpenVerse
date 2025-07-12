@@ -35,7 +35,7 @@ const Blogs = (): JSX.Element => {
     return (
         <main className="md:pt-33 pt-20 grid grid-cols-1 lg:grid-cols-[0.5fr_1.5fr] w-full h-full mx-auto">
             {/* Filter, sort and search options */}
-            <section className="w-full h-fit min-h-[85vh] sticky top-33 lg:flex hidden border-r border-[#7e8182] py-5 px-7 flex-col gap-5">
+            <section className="w-full h-fit md:w-[70%] justify-self-center lg:w-full min-h-[85vh] lg:sticky lg:top-33 flex lg:border-r lg:border-[#7e8182] max-md:py-5 lg:py-5 px-7 flex-col gap-5">
                 <div className="flex items-center justify-center w-full px-3 py-1.5 border border-[#7e8182] rounded-full h-fit gap-3">
                     <FaSearch className="text-[#7e8182]" />
                     <input 
