@@ -38,7 +38,9 @@ export type AppContextType = {
     loading: boolean,
     setLoading: React.Dispatch<React.SetStateAction<boolean>>,
     blogContent: string,
-    setBlogContent: React.Dispatch<React.SetStateAction<string>>
+    setBlogContent: React.Dispatch<React.SetStateAction<string>>,
+    state: string,
+    setState: React.Dispatch<React.SetStateAction<string>>
 }
 
 const AppContext = createContext<AppContextType | undefined>(undefined);

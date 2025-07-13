@@ -8,6 +8,9 @@ const Blogs = (): JSX.Element => {
     const context: AppContextType | undefined = useContext(AppContext)
 
     const [search, setSearch] = useState<string | null>(null);
+    const [author, setAuthor] = useState<string | null>(null);
+    const [category, setCategory] = useState<string | null>(null);
+    const [tag, setTag] = useState<string | null>(null);
     const [minVal, setMinVal] = useState<number>(0);
     const [maxVal, setMaxVal] = useState<number>(30);
     const [minRange] = useState<number>(0);
@@ -32,6 +35,37 @@ const Blogs = (): JSX.Element => {
 
     const { blogData } = context;
 
+    const filteredBlogs: blogType[] = blogData.filter((blog) => {
+        const query: string | undefined = search?.trim().toLowerCase();
+
+        const matchSearch: boolean = !query ||  (
+            blog?.title.toLowerCase().includes(query) ||
+            blog?.author.name.toLowerCase().includes(query) ||
+            blog?.category[0].toLowerCase().includes(query) ||
+            blog?.tags.some(tag => tag.toLowerCase().includes(query))
+        )
+
+        const matchAuthor: boolean = !author || blog.author.name.toLowerCase().includes(author.toLowerCase());
+        const matchCategory: boolean = !category || blog.category[0].toLowerCase().includes(category.toLowerCase());
+        const matchTag: boolean = !tag || blog.tags.some(tag => tag.toLowerCase().includes(tag.toLowerCase()));
+
+        const matchReadTime: boolean = (
+            minVal === null || parseInt(blog.readTime, 10) >= minVal
+        ) && (
+            maxVal === null || parseInt(blog.readTime, 10) <= maxVal
+        )
+
+        return (
+            matchSearch && 
+            matchAuthor && 
+            matchCategory && 
+            matchTag && 
+            matchReadTime
+        )
+    })
+
+    console.log(filteredBlogs);
+
     return (
         <main className="md:pt-33 pt-20 grid grid-cols-1 lg:grid-cols-[0.5fr_1.5fr] w-full h-full mx-auto">
             {/* Filter, sort and search options */}
@@ -54,7 +88,13 @@ const Blogs = (): JSX.Element => {
                     <div className="flex flex-col gap-5">
                         <div className="flex flex-col gap-2">
                             <p className="text-sm px-2">Author</p>
-                            <select id="authorFilter" className="border border-[#7e8182] rounded-full outline-none cursor-pointer text-xs px-3 py-1.5">
+                            <select 
+                                id="authorFilter" 
+                                onChange={(e) => {
+                                    setAuthor(e.target.value || null)
+                                }} 
+                                className="border border-[#7e8182] rounded-full outline-none cursor-pointer text-xs px-3 py-1.5"
+                            >
                                 <option value="">All Authors</option>
                                 <option value="Kiran Devi">Kiran Devi</option>
                                 <option value="George Freedy">Georgy Freedy</option>
@@ -65,7 +105,13 @@ const Blogs = (): JSX.Element => {
                         </div>
                         <div className="flex flex-col gap-2">
                             <p className="text-sm px-2">Categories</p>
-                            <select id="authorFilter" className="border border-[#7e8182] rounded-full outline-none cursor-pointer text-xs px-3 py-1.5">
+                            <select 
+                                id="categoryFilter" 
+                                onChange={(e) => {
+                                    setCategory(e.target.value || null)
+                                }} 
+                                className="border border-[#7e8182] rounded-full outline-none cursor-pointer text-xs px-3 py-1.5"
+                            >
                                 <option value="">All Categories</option>
                                 <option value="Diet">Diet</option>
                                 <option value="Exercise">Exercise</option>
@@ -76,7 +122,13 @@ const Blogs = (): JSX.Element => {
                         </div>
                         <div className="flex flex-col gap-2">
                             <p className="text-sm px-2">Tags</p>
-                            <select id="authorFilter" className="border border-[#7e8182] rounded-full outline-none cursor-pointer text-xs px-3 py-1.5">
+                            <select 
+                                id="tagsFilter" 
+                                onChange={(e) => {
+                                    setTag(e.target.value || null)
+                                }}
+                                className="border border-[#7e8182] rounded-full outline-none cursor-pointer text-xs px-3 py-1.5"
+                            >
                                 <option value="">All Tags</option>
                                 <option value="Web Development">Web Development</option>
                                 <option value="Laughter">Laughter</option>
@@ -135,38 +187,46 @@ const Blogs = (): JSX.Element => {
             </section>
 
             {/* Blogs */}
-            <section className="w-full grid grid-cols-1 md:grid-cols-2 2xl:grid-cols-3 gap-10 px-15 py-10 relative">
-                <p className="absolute right-15 text-sm text-[#7e8182]">Showing all results</p>
+            <section className={`w-full ${filteredBlogs.length !== 0 && 'grid grid-cols-1 md:grid-cols-2 2xl:grid-cols-3 py-10'} gap-10 px-15 relative`}>
+                <p className="absolute right-15 text-sm text-[#7e8182]">Showing {filteredBlogs.length} results</p>
                 {
-                    blogData.map((blog: blogType): JSX.Element => (
-                        <div key={blog.id} className="group border border-[#7e8182] w-[320px] rounded-xl relative pb-20 justify-self-center cursor-pointer">
-                            <div className="overflow-hidden rounded-t-xl w-full">
-                                <img src={blog.thumbnail} alt="blog thumbnail" className="pointer-events-none object-cover group-hover:scale-[1.05] transition-all duration-500" />
+                    filteredBlogs.length !== 0 ?
+                    (
+                        filteredBlogs.map((blog: blogType): JSX.Element => (
+                            <div key={blog.id} className="group border border-[#7e8182] w-[320px] rounded-xl relative pb-20 justify-self-center cursor-pointer">
+                                <div className="overflow-hidden rounded-t-xl w-full">
+                                    <img src={blog.thumbnail} alt="blog thumbnail" className="pointer-events-none object-cover group-hover:scale-[1.05] transition-all duration-500" />
+                                </div>
+                                <div className="flex flex-col gap-5 items-between justify-between py-6">
+                                    <div className="px-5 flex flex-col gap-1">
+                                        <h2 key={blog.id} className="text-xl font-semibold">{blog.title}</h2>
+                                        <p className="text-sm text-[#7e8182]">{blog.author.name}</p>
+                                        <ul className="flex gap-2 flex-wrap tracking-tight my-3">
+                                            {
+                                                blog.tags.map((tag: string, index: number): JSX.Element => (
+                                                    <li key={index} className="bg-[#bec2c3] text-black text-xs font-light px-3 py-1.5 rounded-full">{tag}</li>
+                                                ))
+                                            }
+                                        </ul>
+                                    </div>
+                                    <div className="flex self-end flex-col absolute left-5 bottom-5 text-sm text-[#7e8182]">
+                                        <p>{blog.likes}</p>
+                                        <p>{blog.views}</p>
+                                        <p>{blog.comments}</p>
+                                    </div>
+                                    <div className="flex flex-col items-end absolute right-5 bottom-5 text-sm text-[#7e8182]">
+                                        <p>{blog.publishedAt}</p>
+                                        <p>{blog.readTime}</p>
+                                    </div>
+                                </div>
                             </div>
-                            <div className="flex flex-col gap-5 items-between justify-between py-6">
-                                <div className="px-5 flex flex-col gap-1">
-                                    <h2 key={blog.id} className="text-xl font-semibold">{blog.title}</h2>
-                                    <p className="text-sm text-[#7e8182]">{blog.author.name}</p>
-                                    <ul className="flex gap-2 flex-wrap tracking-tight my-3">
-                                        {
-                                            blog.tags.map((tag: string, index: number): JSX.Element => (
-                                                <li key={index} className="bg-[#bec2c3] text-black text-xs font-light px-3 py-1.5 rounded-full">{tag}</li>
-                                            ))
-                                        }
-                                    </ul>
-                                </div>
-                                <div className="flex self-end flex-col absolute left-5 bottom-5 text-sm text-[#7e8182]">
-                                    <p>{blog.likes}</p>
-                                    <p>{blog.views}</p>
-                                    <p>{blog.comments}</p>
-                                </div>
-                                <div className="flex flex-col items-end absolute right-5 bottom-5 text-sm text-[#7e8182]">
-                                    <p>{blog.publishedAt}</p>
-                                    <p>{blog.readTime}</p>
-                                </div>
-                            </div>
+                        ))
+                    ) : (
+                        <div className="w-full h-[90%] flex flex-col justify-center items-center text-sm text-[#7e8182]">
+                            <p>No blog posts found {search && <>for "<span className="font-bold">{search}</span>"</>}.</p>
+                            <p>{search && 'Try a different keyword or clear the search.'}</p>
                         </div>
-                    ))
+                    )
                 }
             </section>
         </main>

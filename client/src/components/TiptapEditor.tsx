@@ -1,6 +1,7 @@
 import { useContext, type JSX } from 'react'
 import { Color } from '@tiptap/extension-color'
 import { EditorProvider } from '@tiptap/react'
+import { type AnyExtension } from '@tiptap/core'
 import ListItem from '@tiptap/extension-list-item'
 import TextStyle from '@tiptap/extension-text-style'
 import StarterKit from '@tiptap/starter-kit'
@@ -8,11 +9,11 @@ import Underline from '@tiptap/extension-underline'
 import Highlight from '@tiptap/extension-highlight'
 import Placeholder from '@tiptap/extension-placeholder'
 
-import AppContext from '../context/AppContext'
+import AppContext, { type AppContextType } from '../context/AppContext'
 import TiptapToolBar from './TiptapToolBar'
 
 const TiptapEditor = (): JSX.Element => {
-    const context = useContext(AppContext);
+    const context: AppContextType | undefined = useContext(AppContext);
 
     if(!context) {
         return <>Loading...</>
@@ -20,7 +21,7 @@ const TiptapEditor = (): JSX.Element => {
 
     const { setBlogContent } = context;
     
-    const extensions = [
+    const extensions: AnyExtension[] = [
         Color.configure({ types: [TextStyle.name, ListItem.name] }),
         TextStyle,
         StarterKit.configure({

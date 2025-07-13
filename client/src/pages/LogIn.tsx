@@ -1,10 +1,17 @@
-import { useState, type JSX } from "react"
-import { useNavigate } from "react-router-dom";
+import { useContext, type JSX } from "react"
+import { useNavigate, type NavigateFunction } from "react-router-dom";
+import AppContext, { type AppContextType } from "../context/AppContext";
 
 const LogIn = (): boolean | JSX.Element => {
-    const [state, setState] = useState('login');
+    const context: AppContextType | undefined = useContext(AppContext);
 
-    const navigate = useNavigate();
+    const navigate: NavigateFunction = useNavigate();
+
+    if(!context) {
+        return <>Loading...</>
+    }
+
+    const { state, setState } = context;
 
     return state === 'login' && (
         <main className="h-[100vh] w-full grid lg:grid-cols-2 2xl:grid-cols-[0.75fr_1.25fr] grid-cols-1">

@@ -1,10 +1,10 @@
 import { useState, type JSX } from "react"
-import { useNavigate } from "react-router-dom"
+import { useNavigate, type NavigateFunction } from "react-router-dom"
 
 const Navbar = (): JSX.Element => {
-    const navigate = useNavigate();
+    const navigate: NavigateFunction = useNavigate();
 
-    const [showMenu, setShowMenu] = useState(false); // Return type is not necessary to mention as it automatically infers.
+    const [showMenu, setShowMenu] = useState<boolean>(false); // Return type is not necessary to mention as it automatically infers.
 
     return (
         <nav className={`w-full md:h-24 h-16 flex items-center justify-center ${showMenu && 'max-sm:h-34'} transition-all duration-300 fixed z-10`} >
