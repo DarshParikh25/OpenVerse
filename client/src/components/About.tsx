@@ -1,6 +1,9 @@
 import type { JSX } from "react"
+import { useNavigate, type NavigateFunction } from "react-router-dom"
 
 const About = (): JSX.Element => {
+    const navigate: NavigateFunction = useNavigate();
+
     return (
         <section className="w-full flex flex-col justify-center items-center gap-20 mb-20">
             <h2 className="max-md:text-4xl text-[2.75rem] tracking-tighter font-medium">Why OpenVerse?</h2>
@@ -27,7 +30,7 @@ const About = (): JSX.Element => {
                             <span className="text-[#7e8182] text-sm">WRITERS</span>
                         </div>
                     </div>
-                    <button className="w-fit px-6 py-3 border-2 border-[#7e8182] bg-transparent rounded-full text-sm font-medium text-[#7e8182] cursor-pointer hover:text-white hover:bg-[#7e8182] transition-all duration-300 mt-2">Explore Content</button>
+                    <button onClick={() => {navigate('/blog-posts')}} className="w-fit px-6 py-3 border-2 border-[#7e8182] bg-transparent rounded-full text-sm font-medium text-[#7e8182] cursor-pointer hover:text-white hover:bg-[#7e8182] transition-all duration-300 mt-2">Explore Content</button>
                 </div>
                 <img src="/diverse-content.png" alt="Writing content logo" className="self-center hover:scale-[1.03] transition-all duration-300 min-w-50 w-full max-lg:w-1/2 max-md:w-full justify-self-center" />
             </div>
@@ -55,7 +58,7 @@ const About = (): JSX.Element => {
                             <span className="text-[#7e8182] text-sm">FIRST POST</span>
                         </div>
                     </div>
-                    <button className="w-fit px-6 py-3 border-2 border-[#7e8182] hover:bg-transparent rounded-full text-sm font-medium hover:text-[#7e8182] cursor-pointer text-white bg-[#7e8182] transition-all duration-300 mt-2">Start Writing</button>
+                    <button onClick={() => {navigate('/create-blog-post')}} className="w-fit px-6 py-3 border-2 border-[#7e8182] hover:bg-transparent rounded-full text-sm font-medium hover:text-[#7e8182] cursor-pointer text-white bg-[#7e8182] transition-all duration-300 mt-2">Start Writing</button>
                 </div>
             </div>
 

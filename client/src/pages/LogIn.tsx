@@ -11,13 +11,13 @@ const LogIn = (): boolean | JSX.Element => {
         return <>Loading...</>
     }
 
-    const { state, setState } = context;
+    const { state, setState, setShowNav } = context;
 
     return state === 'login' && (
         <main className="h-[100vh] w-full grid lg:grid-cols-2 2xl:grid-cols-[0.75fr_1.25fr] grid-cols-1">
             {/* Login Form */}
             <section className="bg-white w-full h-full sm:py-20 lg:py-15 xl:py-20 py-13 px-5 sm:px-25 flex flex-col gap-15 max-lg:items-center max-lg:justify-center">
-                <img src="/logo.png" alt="logo" onClick={() => {navigate('/')}} className="w-50 md:w-60 cursor-pointer" />
+                <img src="/logo.png" alt="logo" onClick={() => {navigate('/'); setShowNav(true)}} className="w-50 md:w-60 cursor-pointer" />
                 <div className="flex flex-col w-fit h-full gap-7">
                     <h2 className="text-3xl sm:text-[2rem] font-medium tracking-tight flex flex-col max-lg:self-center">
                         Login
@@ -25,11 +25,11 @@ const LogIn = (): boolean | JSX.Element => {
                     </h2>
                     <div className="flex gap-5 justify-center items-center w-full mt-2 max-md:flex-wrap">
                         <button className="flex gap-2 border justify-center items-center px-3.5 py-2.5 text-sm rounded-md cursor-pointer hover:scale-[1.02] transition-all duration-300">
-                            <img src="/google.png" alt="google icon" className="w-5" />
+                            <img src="/google.png" alt="google icon" className="w-5 pointer-events-none" />
                             Login with Google
                         </button>
                         <button className="flex gap-1 bg-[#3B5998] text-sm text-white justify-center items-center rounded-md px-3.5 py-2.5 cursor-pointer hover:scale-[1.02] transition-all duration-300">
-                            <img src="/facebook.png" alt="facebook icon" className="w-5" />
+                            <img src="/facebook.png" alt="facebook icon" className="w-5 pointer-events-none" />
                             Login with facebook
                         </button>
                     </div>
@@ -74,7 +74,7 @@ const LogIn = (): boolean | JSX.Element => {
             
             {/* Login Info */}
             <section className="w-full h-full flex items-center justify-end overflow-hidden relative max-lg:hidden">
-                <img src="/login.png" alt="login background" className="w-fit h-full lg:object-fill 2xl:object-contain" />
+                <img src="/login.png" alt="login background" className="w-fit h-full lg:object-fill 2xl:object-contain pointer-events-none" />
                 <div className="absolute z-50 flex flex-col text-white right-40 top-65 gap-10 w-[55%] xl:w-[45%]">
                     <h3 className="text-5xl font-semibold">Welcome back!</h3>
                     <p className="text-xl font-light">You can login to access with your existing account!</p>

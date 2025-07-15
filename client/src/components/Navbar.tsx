@@ -1,10 +1,19 @@
-import { useState, type JSX } from "react"
+import { useContext, useState, type JSX } from "react"
 import { useNavigate, type NavigateFunction } from "react-router-dom"
+import AppContext from "../context/AppContext";
 
 const Navbar = (): JSX.Element => {
+    const context = useContext(AppContext);
+
     const navigate: NavigateFunction = useNavigate();
 
     const [showMenu, setShowMenu] = useState<boolean>(false); // Return type is not necessary to mention as it automatically infers.
+
+    if(!context) {
+        return <>Loading...</>
+    }
+
+    const { loggedIn, setShowNav } = context;
 
     return (
         <nav className={`w-full md:h-24 h-16 flex items-center justify-center ${showMenu && 'max-sm:h-34'} transition-all duration-300 fixed z-10`} >
@@ -18,7 +27,13 @@ const Navbar = (): JSX.Element => {
                             <img src="/create-blog.png" alt="create blog" className="w-5" />
                             Create Blog
                         </button>
-                        <button onClick={() => {navigate('/login')}} className="rounded-full border-none px-6 py-2 bg-white text-sm font-semibold cursor-pointer">Login</button>
+                        {
+                            loggedIn ? (
+                                <img src="/profile.png" alt="profile-icon" onClick={() => {navigate('/profile')}} className="w-9 cursor-pointer hover:scale-[1.03] transition-all duration-300" />
+                            ) : (
+                                <button onClick={() => {navigate('/login'); setShowNav(false)}} className="rounded-full border-none px-6 py-2 bg-white text-sm font-semibold cursor-pointer">Login</button>
+                            )
+                        }
                     </div>
 
                     {/* Menu for small screens like mobile and tablet users */}
@@ -28,8 +43,14 @@ const Navbar = (): JSX.Element => {
                     </div>
                 </div>
                 <div className={`sm:hidden ${!showMenu && 'hidden'} text-right text-sm font-semibold flex flex-col gap-2.5 pr-8`}>
-                    <p onClick={() => {navigate('/create-blog-post')}} className="text-white cursor-pointer">Create Blog</p>
-                    <p onClick={() => {navigate('/login')}} className="text-white cursor-pointer">Login</p>
+                    <p onClick={() => {navigate('/create-blog-post'); setShowMenu(false)}} className="text-white cursor-pointer">Create Blog</p>
+                    {
+                        loggedIn ? (
+                            <p onClick={() => {navigate('/profile'); setShowMenu(false)}} className="text-white cursor-pointer">View Profile</p>
+                        ) : (
+                            <p onClick={() => {navigate('/login'); setShowMenu(false); setShowNav(false)}} className="text-white cursor-pointer">Login</p>
+                        )
+                    }
                 </div>
             </div>
         </nav>
