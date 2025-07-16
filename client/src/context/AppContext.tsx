@@ -45,6 +45,8 @@ export type AppContextType = {
     setLoggedIn: React.Dispatch<React.SetStateAction<boolean>>,
     showNav: boolean,
     setShowNav: React.Dispatch<React.SetStateAction<boolean>>,
+    selectedBlog: number,
+    setSelectedBlog: React.Dispatch<React.SetStateAction<number>>,
 }
 
 const AppContext = createContext<AppContextType | undefined>(undefined);

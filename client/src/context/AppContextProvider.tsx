@@ -12,6 +12,7 @@ const AppContextProvider: React.FC<Props> = ({ children }) => {
     const [blogContent, setBlogContent] = useState<string>('');
     const [state, setState] = useState<string>('login');
     const [loggedIn, setLoggedIn] = useState<boolean>(true);
+    const [selectedBlog, setSelectedBlog] = useState<number>(-1);
 
     const value: AppContextType = {
         blogData,
@@ -24,7 +25,9 @@ const AppContextProvider: React.FC<Props> = ({ children }) => {
         loggedIn,
         setLoggedIn,
         showNav,
-        setShowNav
+        setShowNav,
+        selectedBlog,
+        setSelectedBlog
     }
 
     return (

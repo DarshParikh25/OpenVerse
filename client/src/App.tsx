@@ -10,7 +10,7 @@ import Register from './pages/Register';
 import AppContext from './context/AppContext';
 import Loading from './components/Loading';
 import BlogPosts from './pages/BlogPosts';
-import Blog from './pages/blog';
+import Blog from './pages/Blog';
 import Profile from './pages/Profile';
 
 function App(): JSX.Element {
@@ -36,7 +36,7 @@ function App(): JSX.Element {
         <Route path='/register' element={<Register />} />
         <Route path='/blog-posts' element={<BlogPosts />} />
         <Route path='/create-blog-post' element={<CreateBlogPost />} />
-        <Route path={`/blogs`} element={<Blog />} />
+        <Route path={`/blog`} element={<Blog />} />
         <Route path={`/profile`} element={<Profile />} />
       </Routes>
       <Footer />
